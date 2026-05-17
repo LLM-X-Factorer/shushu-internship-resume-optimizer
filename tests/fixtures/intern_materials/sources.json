@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "source_type": "code_repo",
+      "title": "ticket-service",
+      "path_or_text": "tests/fixtures/intern_materials/repo"
+    },
+    {
+      "source_type": "project_summary",
+      "title": "weekly-summary",
+      "path_or_text": "tests/fixtures/intern_materials/project_summary.md"
+    },
+    {
+      "source_type": "business_docs",
+      "title": "business-overview",
+      "path_or_text": "tests/fixtures/intern_materials/business_overview.md",
+      "knowledge_mode": "basic_rag"
+    }
+  ]
+}
