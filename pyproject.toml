@@ -3,35 +3,35 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "shushu-internship-tool"
-version = "1.1.0"
-description = "Multi-source internship achievement audit, resume ranking, and interview preparation workflows."
+name = "shushu"
+version = "2.0.0"
+description = "Generate aijobfit internship case-study blog posts (.tsx) from a desensitized project description."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 authors = [
-  { name = "shushu-internship-tool contributors" }
+  { name = "shushu contributors" }
 ]
-dependencies = []
+dependencies = [
+  "anthropic>=0.40"
+]
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=8",
-  "PyYAML>=6"
+  "pytest>=8"
 ]
 
 [project.scripts]
-shushu-achievement-audit = "shushu_internship_tool.achievement_audit:main"
-shushu-resume-rank = "shushu_internship_tool.resume_rank:main"
-shushu-doc-knowledge = "shushu_internship_tool.doc_knowledge:main"
-shushu-repo-audit = "shushu_internship_tool.repo_audit:main"
-shushu-candidate-score = "shushu_internship_tool.candidate_score:main"
-shushu-interview-pack = "shushu_internship_tool.interview_pack:main"
+shushu-generate-case = "shushu.generate_case:main"
 
 [tool.setuptools.packages.find]
-where = ["skills/shushu-internship-tool/scripts"]
+where = ["."]
+include = ["shushu*"]
+
+[tool.setuptools.package-data]
+shushu = ["data/*.json"]
 
 [tool.pytest.ini_options]
-pythonpath = ["skills/shushu-internship-tool/scripts"]
+pythonpath = ["."]
 testpaths = ["tests"]
 addopts = "-q"

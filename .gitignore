@@ -12,16 +12,8 @@ dist/
 build/
 *.egg-info/
 
-# Generated reports and experiment outputs
-reports/
-outputs/
-runs/
-wandb/
-mlruns/
-checkpoints/
-artifacts/
-*.log
-tmp_manual_eval/
+# generate_case 输出
+out/
 
 # Local editor/system files
 .DS_Store

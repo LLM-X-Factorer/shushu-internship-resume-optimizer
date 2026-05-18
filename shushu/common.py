@@ -94,3 +94,13 @@ def is_probably_text(path: Path) -> bool:
         "license",
         "notice",
     }
+
+
+def slugify(text: str, max_len: int = 60) -> str:
+    text = text.strip().lower()
+    text = re.sub(r"[\s_]+", "-", text)
+    text = re.sub(r"[^a-z0-9\-]+", "", text)
+    text = re.sub(r"-+", "-", text).strip("-")
+    if not text:
+        text = "case"
+    return text[:max_len].rstrip("-") or "case"

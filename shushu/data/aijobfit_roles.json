@@ -1,0 +1,316 @@
+{
+  "_meta": {
+    "source": "aijobfit/public/data/roles-domestic.json",
+    "extracted_at": "2026-05-18",
+    "excluded": [
+      "other"
+    ],
+    "sync_responsibility": "手动同步：aijobfit 更新 roles-domestic.json（新增/重命名/调整 required_skills）后，由 shushu 维护者重新跑提取脚本覆盖本文件，并在 commit message 写明来源 commit hash。",
+    "schema": "role_id (用作 target-role 参数 + 输出文件名前缀) / role_name / sample_titles / required_skills (LLM 命中扫描主清单) / preferred_skills / job_count / salary_median"
+  },
+  "roles": [
+    {
+      "role_id": "ai_engineer",
+      "role_name": "AI/LLM 工程师",
+      "sample_titles": [
+        "LLM/AI Agent开发工程师",
+        "AI Agent 应用工程师",
+        "AI Agent高级产品经理",
+        "AI Agent 产品经理",
+        "AI Engineer-AI 开发工程师"
+      ],
+      "required_skills": [
+        "llm",
+        "agent_architecture",
+        "python",
+        "rag",
+        "java",
+        "langchain",
+        "golang",
+        "multimodal_ai",
+        "autogen",
+        "prompt_engineering"
+      ],
+      "preferred_skills": [
+        "semantic_kernel",
+        "reinforcement_learning",
+        "huggingface"
+      ],
+      "job_count": 426,
+      "salary_median": 32500
+    },
+    {
+      "role_id": "product_manager",
+      "role_name": "AI 产品经理",
+      "sample_titles": [
+        "AI产品策划（LLM记忆与交互方向）",
+        "AI产品经理（AIGC/跨境电商方向）",
+        "AI LLM Product Manager",
+        "高级产品经理（AI方向）",
+        "行业通用智能体产品经理（toB/toG）"
+      ],
+      "required_skills": [
+        "llm",
+        "agent_architecture",
+        "computer_vision",
+        "data_analysis",
+        "prompt_engineering",
+        "function_calling",
+        "multi_agent",
+        "fine_tuning",
+        "generative_ai",
+        "multimodal_ai"
+      ],
+      "preferred_skills": [
+        "anthropic_api",
+        "gemini_api",
+        "rag",
+        "knowledge_graph"
+      ],
+      "job_count": 293,
+      "salary_median": 35000
+    },
+    {
+      "role_id": "algorithm",
+      "role_name": "算法工程师/研究员",
+      "sample_titles": [
+        "Entry Level Engineers/Scientists/Chemists/Technicians",
+        "Plan& Control Algorithm Engineer 控制规划算法工程师",
+        "模型策略岗（LLM应用与数据分析）",
+        "AI量化研究助理",
+        "券商AI量化研究岗"
+      ],
+      "required_skills": [
+        "llm",
+        "python",
+        "nlp",
+        "tensorflow",
+        "pytorch",
+        "machine_learning",
+        "rag",
+        "fine_tuning",
+        "deep_learning",
+        "prompt_engineering"
+      ],
+      "preferred_skills": [],
+      "job_count": 122,
+      "salary_median": 52500
+    },
+    {
+      "role_id": "sales_bd",
+      "role_name": "AI 销售/商务",
+      "sample_titles": [
+        "AI Customer Acquisition / Private Domain Traffic Generation",
+        "AI Sales",
+        "销售经理（人工智能、教育方向）",
+        "National Sales Director (Industrial AI)",
+        "医疗器械销售代表"
+      ],
+      "required_skills": [
+        "llm",
+        "tongyi_qianwen"
+      ],
+      "preferred_skills": [],
+      "job_count": 118,
+      "salary_median": 22500
+    },
+    {
+      "role_id": "leadership",
+      "role_name": "AI 管理/战略",
+      "sample_titles": [
+        "大模型战略分析/投资专家",
+        "投资总监-医疗AI方向",
+        "投资部负责人",
+        "风控总监",
+        "Risk Control Director"
+      ],
+      "required_skills": [
+        "llm",
+        "agent_architecture"
+      ],
+      "preferred_skills": [],
+      "job_count": 110,
+      "salary_median": 55625
+    },
+    {
+      "role_id": "autonomous",
+      "role_name": "自动驾驶/智能座舱",
+      "sample_titles": [
+        "ADAS Platform Software Engineer",
+        "ADAS测试分析工程师",
+        "ADAS Development Engineer",
+        "自动驾驶安全员",
+        "自动驾驶工程师"
+      ],
+      "required_skills": [
+        "llm"
+      ],
+      "preferred_skills": [],
+      "job_count": 99,
+      "salary_median": 26875
+    },
+    {
+      "role_id": "operations",
+      "role_name": "AI 运营/训练师",
+      "sample_titles": [
+        "AIGC运营",
+        "高级新媒体电商运营",
+        "跨境电商运营总监",
+        "AI自动化运营",
+        "大宗商品电商平台运营总（AI大宗平台）"
+      ],
+      "required_skills": [
+        "llm",
+        "data_analysis",
+        "agent_architecture",
+        "tongyi_qianwen",
+        "nlp",
+        "prompt_engineering",
+        "python",
+        "javascript",
+        "generative_ai",
+        "langchain"
+      ],
+      "preferred_skills": [
+        "autogen"
+      ],
+      "job_count": 95,
+      "salary_median": 22500
+    },
+    {
+      "role_id": "smart_manufacturing",
+      "role_name": "智能制造/工业AI",
+      "sample_titles": [
+        "工业AI",
+        "工业软件产业发展 AI for Engineering专家（LLM方向）",
+        "工业智能体首席专家",
+        "工业AI解决方案经理",
+        "城市经理(离散工业AI+数字化)"
+      ],
+      "required_skills": [
+        "llm"
+      ],
+      "preferred_skills": [],
+      "job_count": 82,
+      "salary_median": 39000
+    },
+    {
+      "role_id": "ai_transformation",
+      "role_name": "AI 转型/咨询",
+      "sample_titles": [
+        "AIT (AI Business Transformation) Senior Specialist/Supervisor",
+        "AI交付经理PMO- AI客服（电商）方向",
+        "电商 AI 流程建构师",
+        "电商 AI 项目管理专家 PMO",
+        "数字化转型实习生"
+      ],
+      "required_skills": [
+        "prompt_engineering",
+        "devops"
+      ],
+      "preferred_skills": [],
+      "job_count": 71,
+      "salary_median": 33333
+    },
+    {
+      "role_id": "education_ai",
+      "role_name": "AI 教育",
+      "sample_titles": [
+        "AI技术人员-教育应用、AI讲师",
+        "市场经理-”AI+教育“",
+        "AI+教育解决方案岗位",
+        "AI教育讲师",
+        "智能教育产品交付与服务经理"
+      ],
+      "required_skills": [
+        "llm"
+      ],
+      "preferred_skills": [],
+      "job_count": 30,
+      "salary_median": 14750
+    },
+    {
+      "role_id": "data",
+      "role_name": "数据分析/数据科学",
+      "sample_titles": [
+        "Data Analyst - LLM agentic AI",
+        "量化交易AI数据中台技术负责人",
+        "AI量化投资岗",
+        "AI量化投资经理助理",
+        "AI量化交易员"
+      ],
+      "required_skills": [
+        "data_analysis",
+        "llm",
+        "agent_architecture",
+        "machine_learning",
+        "sql",
+        "python",
+        "react",
+        "rag"
+      ],
+      "preferred_skills": [],
+      "job_count": 27,
+      "salary_median": 35000
+    },
+    {
+      "role_id": "risk_compliance",
+      "role_name": "AI 风控/合规",
+      "sample_titles": [
+        "智能风控经理",
+        "风控经理",
+        "信贷评审-风控中台（制造加工）",
+        "交易风控岗",
+        "风控专家"
+      ],
+      "required_skills": [
+        "sql",
+        "python",
+        "prompt_engineering",
+        "data_analysis",
+        "agent_architecture",
+        "coze",
+        "dify",
+        "tongyi_qianwen",
+        "deepseek",
+        "machine_learning"
+      ],
+      "preferred_skills": [],
+      "job_count": 20,
+      "salary_median": 22500
+    },
+    {
+      "role_id": "medical_ai",
+      "role_name": "医疗AI专岗",
+      "sample_titles": [
+        "理赔业务专家（寿险/财产险+LLM）",
+        "医疗AI产品助理",
+        "Healthcare AI Project Assistant",
+        "医疗AI售前",
+        "智能体HTA项目管理专员（循证医学/卫生技术评估方向）"
+      ],
+      "required_skills": [
+        "llm"
+      ],
+      "preferred_skills": [],
+      "job_count": 12,
+      "salary_median": 10000
+    },
+    {
+      "role_id": "customer_service",
+      "role_name": "智能客服",
+      "sample_titles": [
+        "智能客服",
+        "智能客服管培生",
+        "Java开发工程师（智能客服方向）",
+        "智能客服系统专家"
+      ],
+      "required_skills": [
+        "java"
+      ],
+      "preferred_skills": [],
+      "job_count": 5,
+      "salary_median": 10500
+    }
+  ]
+}

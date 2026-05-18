@@ -1,14 +1,12 @@
 # Contributing
 
-Thanks for your interest in improving `shushu-internship-resume-optimizer`.
+Thanks for your interest in improving `shushu`.
 
-This project is still evolving, and feedback based on real internship materials is especially valuable.
+## Scope
 
-## Before You Start
+`shushu` 只做一件事：把一份脱敏后的实习项目描述 + 一个 aijobfit 角色 id，生成一篇可直接 import 到 `aijobfit/src/components/blog/posts/` 的 `.tsx`。
 
-- Read [README.md](./README.md) or [README.en.md](./README.en.md) for the current workflow and scope.
-- Make sure you do **not** commit personal internship materials, private resumes, company-sensitive docs, or generated outputs from private data.
-- The repository already ignores `tmp_manual_eval/`, but please double-check any new local folders before committing.
+不要把它扩展成通用简历工具 / 多角色路由器 / RAG 知识库。如果想做这类东西，请在 aijobfit 主仓里另起项目。
 
 ## Local Setup
 
@@ -24,44 +22,22 @@ python -m pip install -e ".[dev]"
 pytest
 ```
 
-Please run the test suite before opening a PR.
+测试默认 mock 掉 Anthropic 调用；不会跑真实 LLM。
 
-## What Kind of Contributions Help Most
+## 改 prompt 时
 
-- better achievement extraction and grouping logic
-- less mechanical resume / interview phrasing
-- stronger AI-heavy / overclaim-heavy wording detection
-- better support for real internship materials
-- broader testing for `doc_knowledge` and other less-tested features
-- documentation improvements and clearer examples
+`shushu/prompts.py` 里的硬约束（不编造数字 / 禁用词清单 / bullet 结构 / 答法骨架格式）是产品契约的一部分，不要在没和 aijobfit 维护者对齐前删改。新增约束 OK；放宽现有约束需要在 PR 里给出证据。
 
-## Issue Suggestions
+## 改角色数据时
 
-When opening an issue, it helps a lot if you include:
+`shushu/data/aijobfit_roles.json` 是 aijobfit `roles-domestic.json` 的 hard copy。直接手写覆盖请在 commit message 里写明来源 commit hash。
 
-- what input material type you used
-- what output felt wrong
-- what you expected instead
-- whether the issue is about extraction, ranking, rewriting, or interview prep
+## Privacy
 
-If possible, replace private content with anonymized examples.
+不要提交：
 
-## Pull Request Notes
+- 真实公司 / 产品 / 客户名
+- 真实指标、用户数据、内部文档
+- 含密钥的配置
 
-- Keep changes scoped and explain the user-facing impact clearly.
-- Add or update tests when behavior changes.
-- Avoid committing generated files from private evaluation runs.
-- If your change affects public-facing output format, mention it in the PR summary.
-
-## Privacy Reminder
-
-This repository is intended to be open source.
-
-Please do not commit:
-
-- personal resumes
-- real company-internal documents
-- raw internship notes containing sensitive information
-- generated reports derived from private materials
-
-Thanks for helping make the project more practical and more reliable.
+测试 fixture 必须是完全虚构的脱敏样本。
