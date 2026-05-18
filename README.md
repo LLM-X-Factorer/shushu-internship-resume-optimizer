@@ -18,9 +18,33 @@ shushu 不是简历生成器，是给 [aijobfit](https://github.com/LLM-X-Factor
 
 输出文件名 `${roleId}-${slug}.tsx`，套用 aijobfit `PostShell` 模板（`H2 / P / Ul / DataTable / Callout` 等 helper）。同时把原始抽取/扫描/改写/追问 JSON 写到 `raw/${roleId}-${slug}.md`，方便人工审阅。
 
-## 14 角色数据
+## 与 aijobfit 的边界
 
-`shushu/data/aijobfit_roles.json` 是 [aijobfit `public/data/roles-domestic.json`](https://github.com/LLM-X-Factorer/aijobfit) 的 hard copy（已剔除 `other` 桶）。aijobfit 每次更新角色清单后需要手动同步本文件，并在 commit message 写明来源 commit hash。
+简而言之：**aijobfit 是产品，shushu 是产品旁边一个写文章的小工具。** 不在同一个 runtime，不分享数据所有权。
+
+|  | aijobfit | shushu |
+|---|---|---|
+| 形态 | Next.js Web App | Python 离线脚本 |
+| 跑在哪 | 生产环境 (aijobfit.llmxfactor.cloud) | 维护者本地，一次性运行 |
+| 谁用 | 求职用户 | aijobfit 维护者 / 受邀写手 |
+| 网络拓扑 | 终端用户能访问 | 永远不上线，不被用户访问 |
+| 数据所有权 | `roles-domestic.json` 的源 | hard copy，只读 |
+| `.tsx` 文章所有权 | 文章最终落地的家 | 一次性生成器 |
+
+两条单向同步线（手动）：
+
+1. `aijobfit/public/data/roles-domestic.json` → `shushu/data/aijobfit_roles.json`（角色定义变化时重新覆盖，commit message 写来源 hash）
+2. `shushu` 生成的 `out/*.tsx` → 人工审阅 + 补 `[待补：...]` → `aijobfit/src/components/blog/posts/`
+
+边界规则：
+
+- shushu **不读** agent-hunt、**不调** aijobfit 的 API、**不知道**用户存在
+- aijobfit **不依赖** shushu；砍掉 shushu 仓库 aijobfit 照常运行，只是新文章得手写
+- 角色定义冲突时 **aijobfit 说了算**；shushu 那份是 snapshot，过期就过期
+- 生成的 `.tsx` 出问题：prompt / 模板的问题 → 改 shushu 重生成；单篇内容润色 / 数字补齐 → 直接在 aijobfit 那份手改，不回流
+- PostShell API 变了：**先改 aijobfit，再来 shushu 改 `render.py`**，否则后续生成的 tsx 会 build 失败
+
+shushu 明确**不做**：通用简历生成器 / runtime 服务 / 多角色路由 / RAG / 知识库 / 用户分析 / SEO（这些全归 aijobfit）。
 
 ## 快速开始
 
