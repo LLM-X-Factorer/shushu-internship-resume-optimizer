@@ -5,6 +5,8 @@ shushu 不是简历生成器，是给 [aijobfit](https://github.com/LLM-X-Factor
 输入：一份脱敏后的实习项目原始描述（`.md`）+ 目标角色 id（aijobfit 14 角色之一）。
 输出：一篇可直接放进 `aijobfit/src/components/blog/posts/` 的 React 组件文件（`.tsx`）。
 
+> aijobfit 侧的对接说明见 [aijobfit README · 案例文章生产](https://github.com/LLM-X-Factorer/aijobfit#案例文章生产)。
+
 ## 工作方式
 
 由 LLM（`claude-sonnet-4-6`，带 prompt caching）驱动 4 步流水线：
