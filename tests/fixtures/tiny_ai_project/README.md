@@ -1,6 +1,6 @@
 # Tiny AI Project
 
-Minimal fixture for 鼠鼠实习妙妙工具 tests.
+Minimal fixture for internship-material processing tests.
 
 Run training:
 
