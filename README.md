@@ -9,7 +9,7 @@ shushu 不是简历生成器，是给 [aijobfit](https://github.com/LLM-X-Factor
 
 ## 工作方式
 
-由 LLM（`claude-sonnet-4-6`，带 prompt caching）驱动 4 步流水线：
+由 LLM（DeepSeek `deepseek-chat`，OpenAI 兼容协议，prompt caching 服务端自动开启）驱动 4 步流水线：
 
 1. 抽取：从原始描述拆出「背景 / 我的动作 / 技术细节 / 结果 / 缺失信息」
 2. 命中扫描：对照目标角色的 `required_skills / preferred_skills` 找证据
@@ -29,7 +29,7 @@ python -m venv .venv
 . .venv/bin/activate
 python -m pip install -e ".[dev]"
 
-export ANTHROPIC_API_KEY=sk-...
+export DEEPSEEK_API_KEY=sk-...
 
 python -m shushu.generate_case \
   --input tests/fixtures/sample_project.md \

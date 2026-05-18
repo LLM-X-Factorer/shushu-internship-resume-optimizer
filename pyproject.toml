@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shushu"
-version = "2.0.0"
+version = "2.1.0"
 description = "Generate aijobfit internship case-study blog posts (.tsx) from a desensitized project description."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -13,7 +13,7 @@ authors = [
   { name = "shushu contributors" }
 ]
 dependencies = [
-  "anthropic>=0.40"
+  "openai>=1.50"
 ]
 
 [project.optional-dependencies]

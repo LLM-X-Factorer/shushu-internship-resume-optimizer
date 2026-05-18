@@ -22,7 +22,7 @@ python -m pip install -e ".[dev]"
 pytest
 ```
 
-测试默认 mock 掉 Anthropic 调用；不会跑真实 LLM。
+测试默认 mock 掉 LLM 调用（OpenAI 兼容接口）；不会真的请求 DeepSeek。
 
 ## 改 prompt 时
 

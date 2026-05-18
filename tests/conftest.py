@@ -10,19 +10,22 @@ import pytest
 FIXTURES = Path(__file__).parent / "fixtures"
 
 
-class FakeAnthropicClient:
-    """跑通流水线用的假 client。按 prompt 里出现的关键字返回固定 JSON。"""
+class FakeDeepSeekClient:
+    """跑通流水线用的假 client，模拟 OpenAI 兼容的 chat.completions 接口。"""
 
     def __init__(self) -> None:
-        self.messages = SimpleNamespace(create=self._create)
+        completions = SimpleNamespace(create=self._create)
+        self.chat = SimpleNamespace(completions=completions)
         self.calls: list[dict[str, Any]] = []
 
-    def _create(self, *, model: str, max_tokens: int, system: Any, messages: list[dict[str, Any]]) -> Any:
-        user_prompt = messages[0]["content"]
+    def _create(self, *, model: str, messages: list[dict[str, Any]], **kwargs: Any) -> Any:
+        user_prompt = next(m["content"] for m in messages if m["role"] == "user")
         self.calls.append({"model": model, "prompt": user_prompt})
         payload = self._route(user_prompt)
         text = json.dumps(payload, ensure_ascii=False)
-        return SimpleNamespace(content=[SimpleNamespace(text=text)])
+        message = SimpleNamespace(content=text)
+        choice = SimpleNamespace(message=message)
+        return SimpleNamespace(choices=[choice])
 
     def _route(self, prompt: str) -> dict[str, Any]:
         if "TASK_TAG: shushu.extract" in prompt:
@@ -87,7 +90,7 @@ class FakeAnthropicClient:
 def fake_llm():
     from shushu.llm import LLMClient
 
-    fake = FakeAnthropicClient()
+    fake = FakeDeepSeekClient()
     return LLMClient(client=fake), fake
 
 
